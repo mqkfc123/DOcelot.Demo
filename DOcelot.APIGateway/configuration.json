@@ -1,0 +1,35 @@
+﻿{
+  "ReRoutes": [
+    // API:DOcelot.OrderService
+    {
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DOcelot.OrderService.com",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/OrderService/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    },
+    // API:DOcelot.ProductService
+    {
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DOcelot.ProductService.com",
+          "Port": "80"
+        }
+      ],
+      "UpstreamPathTemplate": "/ProductService/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ]
+    }
+  ]
+  //,
+  //"GlobalConfiguration": {
+  //  "BaseUrl": ""
+  //}
+
+}
