@@ -11,7 +11,7 @@ namespace Client
     ///  IdentityModel  nuget IdentityModel 
     /// </summary>
     class Program
-    {
+    { 
         public static void Main(string[] args) => MainAsync().GetAwaiter().GetResult();
 
         private static async Task MainAsync()
