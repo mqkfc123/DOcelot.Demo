@@ -42,7 +42,8 @@ namespace DOcelot.IdentityService
                     {
                         new Secret("secret".Sha256())
                     },
-                    // 客户端有权访问的范围（Scopes）
+                    // 客户端有权访问的范围（Scopes） 
+                    //需要匹配GetApiResources给出的api，否则请求的时候会提无效的scopes
                     AllowedScopes = new [] { "ProductService", "OrderService", }
                 }
             };
