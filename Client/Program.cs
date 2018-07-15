@@ -31,21 +31,16 @@ namespace Client
 
             // request token
             var tokenClient = new TokenClient(disco.TokenEndpoint, "client", "secret");
-
             //帐号密码
             var tokenResponse = tokenClient.RequestResourceOwnerPasswordAsync("mqkfc123@163.com", "123456").Result;
-
             //var tokenResponse = await tokenClient.RequestClientCredentialsAsync("api1");
-
             if (tokenResponse.IsError)
             {
                 Console.WriteLine(tokenResponse.Error);
                 return;
             }
-
             Console.WriteLine(tokenResponse.Json);
             Console.WriteLine("\n\n");
-
             // call api
             var client = new HttpClient();
             client.SetBearerToken(tokenResponse.AccessToken);
