@@ -11,7 +11,15 @@
         }
       ],
       "UpstreamPathTemplate": "/OrderService/{url}",
-      "UpstreamHttpMethod": [ "Get", "Post" ]
+      //"UpstreamPathTemplate": "/api/identityservice/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ] 
+      //IdentityService4的集成
+      //上面分别为两个示例API Service增加Authentication的选项，为其设置ProviderKey。
+      //下面会对不同的路由规则设置的ProviderKey设置具体的验证方式
+      //"AuthenticationOptions": {
+      //  "AuthenticationProviderKey": "OrderServiceKey",
+      //  "AllowedScopes": []
+      //}
     },
     // API:DOcelot.ProductService
     {
@@ -24,9 +32,27 @@
         }
       ],
       "UpstreamPathTemplate": "/ProductService/{url}",
+      //"UpstreamPathTemplate": "/api/identityservice/{url}",
       "UpstreamHttpMethod": [ "Get", "Post" ]
+    } 
+    //IdentityService4的集成
+    //上面分别为两个示例API Service增加Authentication的选项，为其设置ProviderKey。
+    //下面会对不同的路由规则设置的ProviderKey设置具体的验证方式
+    //"AuthenticationOptions",
+    //{
+    //  "AuthenticationProviderKey": "ProductServiceKey",
+    //  "AllowedScopes": []
+    //}
+  ],
+  "IdentityService": {
+    "Uri": "http://DOcelot.IdentityService.com", //IdentityService地址
+    "UseHttps": false,
+    "ApiSecrets": {
+      "OrderService": "OrderService",
+      "ProductService": "ProductService"
     }
-  ]
+  }
+
   //,
   //"GlobalConfiguration": {
   //  "BaseUrl": ""

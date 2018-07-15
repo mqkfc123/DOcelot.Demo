@@ -51,10 +51,12 @@ namespace DOcelot.APIGateway
 
             return WebHost.CreateDefaultBuilder(args)
                           .UseStartup<Startup>()
-                          .UseUrls($"http://{IP}:{Port}")
+                          //.UseUrls($"http://{IP}:{Port}")
                           .ConfigureAppConfiguration((hostingContext, builder) =>
                           {
-                              builder.AddJsonFile("configuration.json", false, true);
+                              //builder.AddJsonFile("configuration.json", false, true);
+                              builder.AddJsonFile("configuration.Development.json", false, true);
+                              //builder.AddJsonFile("appsettings.Development.json", false, true);
                           })
                           .Build();
         }

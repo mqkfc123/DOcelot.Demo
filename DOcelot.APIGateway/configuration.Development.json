@@ -1,0 +1,93 @@
+﻿{
+  "ReRoutes": [
+    // API01:CAS.ClientService
+    // --> service part
+    {
+      "UseServiceDiscovery": false, // do not use Consul service discovery
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DOcelot.OrderService.com",
+          "Port": "80"
+        }
+      ],
+      "ServiceName": "CAS.OrderService",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "UpstreamPathTemplate": "/api/orderservice/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "HttpHandlerOptions": {
+        "UseTracing": false // use butterfly to tracing request chain
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OrderServiceKey",
+        "AllowedScopes": []
+      },
+      "ReRoutesCaseSensitive": false // non case sensitive
+    },
+    // API02:CAS.ProductService
+    // --> service part
+    {
+      "UseServiceDiscovery": false, // do not use Consul service discovery
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DOcelot.ProductService.com",
+          "Port": "80"
+        }
+      ],
+      "ServiceName": "CAS.ProductService",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "FileCacheOptions": { // cache response data - ttl: 10s
+        "TtlSeconds": 10,
+        "Region": ""
+      },
+      "UpstreamPathTemplate": "/api/productservice/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "HttpHandlerOptions": {
+        "UseTracing": false // use butterfly to tracing request chain
+      },
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "ProductServiceKey",
+        "AllowedScopes": []
+      },
+      "ReRoutesCaseSensitive": false // non case sensitive
+    },
+    // --> Identity Service Part
+    {
+      "UseServiceDiscovery": false, // do not use Consul service discovery
+      "DownstreamPathTemplate": "/api/{url}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "DOcelot.IdentityService.com",
+          "Port": "80"
+        }
+      ],
+      "ServiceName": "CAS.IdentityService",
+      "LoadBalancerOptions": {
+        "Type": "RoundRobin"
+      },
+      "UpstreamPathTemplate": "/api/identityservice/{url}",
+      "UpstreamHttpMethod": [ "Get", "Post" ],
+      "HttpHandlerOptions": {
+        "UseTracing": false // use butterfly to tracing request chain
+      },
+      "ReRoutesCaseSensitive": false // non case sensitive
+    }
+  ],
+  "IdentityService": {
+    "Uri": "http://DOcelot.IdentityService.com", //IdentityService地址
+    "UseHttps": false,
+    "ApiSecrets": {
+      "OrderService": "OrderService",
+      "ProductService": "ProductService"
+    }
+  }
+
+}

@@ -5,9 +5,13 @@ VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DOcelot.APIGateway", "DOcelot.APIGateway\DOcelot.APIGateway.csproj", "{9A4D9B2C-C7BC-42E8-9E1C-61038BEA97A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOcelot.ProductService", "DOcelot.ProductService\DOcelot.ProductService.csproj", "{58557EDE-E253-47A9-ABB1-762F3F1F571E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DOcelot.ProductService", "DOcelot.ProductService\DOcelot.ProductService.csproj", "{58557EDE-E253-47A9-ABB1-762F3F1F571E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DOcelot.OrderService", "DOcelot.OrderService\DOcelot.OrderService.csproj", "{900D0CE9-8BA6-4286-A08B-77C441A6AF94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DOcelot.OrderService", "DOcelot.OrderService\DOcelot.OrderService.csproj", "{900D0CE9-8BA6-4286-A08B-77C441A6AF94}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DOcelot.IdentityService", "DOcelot.IdentityService\DOcelot.IdentityService.csproj", "{9F98FAB7-BC0F-4AAD-9A50-BE8CE676B4AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Client\Client.csproj", "{625F1E0A-87F7-4569-86BB-66E62C12C71C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{900D0CE9-8BA6-4286-A08B-77C441A6AF94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{900D0CE9-8BA6-4286-A08B-77C441A6AF94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{900D0CE9-8BA6-4286-A08B-77C441A6AF94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F98FAB7-BC0F-4AAD-9A50-BE8CE676B4AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F98FAB7-BC0F-4AAD-9A50-BE8CE676B4AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F98FAB7-BC0F-4AAD-9A50-BE8CE676B4AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F98FAB7-BC0F-4AAD-9A50-BE8CE676B4AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{625F1E0A-87F7-4569-86BB-66E62C12C71C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{625F1E0A-87F7-4569-86BB-66E62C12C71C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{625F1E0A-87F7-4569-86BB-66E62C12C71C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{625F1E0A-87F7-4569-86BB-66E62C12C71C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
